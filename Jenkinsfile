@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/Y0srgh/learn-nest-js.git'
+                git branch: 'master', url: 'https://github.com/Y0srgh/my-portfolio.git'
             }
         }
 
