@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'docker build -t y0srgh/portfolio-front:latest .'
+                sh 'docker build --no-cache -t y0srgh/portfolio-front:latest .'
             }
         }
 
