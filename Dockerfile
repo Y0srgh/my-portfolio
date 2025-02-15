@@ -1,13 +1,7 @@
-FROM node:20
+FROM nginx:alpine
 
-WORKDIR /portfolio-front
+COPY dist/frontend /usr/share/nginx/html
 
-COPY package*.json ./
+EXPOSE 80
 
-RUN npm install
-
-COPY . .
-
-EXPOSE 4200
-
-CMD ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
