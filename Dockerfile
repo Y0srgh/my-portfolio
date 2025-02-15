@@ -1,7 +1,13 @@
-FROM nginx:alpine
+FROM node:20 AS build-stage
 
-COPY dist/frontend/browser /usr/share/nginx/html
+WORKDIR /portfolio-front
 
-EXPOSE 80
+COPY package*.json ./
 
-CMD ["nginx", "-g", "daemon off;"]
+RUN npm install
+
+COPY . .
+
+EXPOSE 4000
+
+CMD ["npm", "run", "serve:ssr:frontend"]
